@@ -1,5 +1,5 @@
-use crate::parser::{parse_query, AstNode, ComparisonOperator, LogicalOperator};
 use crate::query_error::QueryError;
+use crate::query_parser::{parse_query, AstNode, ComparisonOperator, LogicalOperator};
 use moon_config::{LanguageType, PlatformType, ProjectType, TaskType};
 use starbase_utils::glob::GlobSet;
 use std::borrow::Cow;

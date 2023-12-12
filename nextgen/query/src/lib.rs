@@ -1,10 +1,10 @@
-mod builder;
-mod parser;
+mod query_builder;
 mod query_error;
+mod query_parser;
 
-pub use builder::*;
-pub use parser::*;
+pub use query_builder::*;
 pub use query_error::QueryError;
+pub use query_parser::*;
 
 pub trait Queryable {
     fn matches_criteria(&self, criteria: &Criteria) -> miette::Result<bool>;
