@@ -7,6 +7,10 @@ description = "Command line argument parsing and formatting."
 homepage = "https://moonrepo.dev/moon"
 repository = "https://github.com/moonrepo/moon"
 
+[[bin]]
+name = "moon_args"
+path = "src/main.rs"
+
 [dependencies]
 miette = { workspace = true }
 pest = { workspace = true }

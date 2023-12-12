@@ -35,13 +35,15 @@ fn parse_ast_node(pair: Pair<Rule>) -> Result<Option<AstNode>, Box<Error<Rule>>>
         Rule::command => Some(AstNode::Command {
             name: Cow::Borrowed(pair.as_str()),
         }),
-        Rule::WHITESPACE | Rule::EOI => None,
+        Rule::EOI => None,
         _ => None,
     })
 }
 
 fn parse_ast(pairs: Pairs<'_, Rule>) -> Result<Vec<AstNode<'_>>, Box<Error<Rule>>> {
     let mut ast = vec![];
+
+    dbg!(&pairs);
 
     for pair in pairs {
         if let Some(node) = parse_ast_node(pair)? {
