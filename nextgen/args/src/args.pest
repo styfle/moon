@@ -1,0 +1,59 @@
+// https://www.gnu.org/software/bash/manual/bash.html
+// https://ss64.com/bash/syntax.html
+
+WHITESPACE = _{ " " }
+
+// todo
+// - # comments?
+
+// Definitions
+
+blank = @{ "\t" | " " }
+
+control_operator = @{ ";&" | ";;&" | ";;" | ";" | "||" | "|" | "|&" | "&&" | "&" }
+// ( )
+
+redirect_operator = @{ ">>" | ">" | "<" | "<<" | "<>" | "<<<" }
+
+operator = _{ control_operator | redirect_operator }
+
+meta_character = @{ NEWLINE | blank | "|" | "&" | ";" | "(" | ")" | "<" | ">" }
+
+id = @{ (ASCII_ALPHANUMERIC | "_" | "-")+ }
+
+value = @{ (ASCII_ALPHANUMERIC | "_" | "-" | "." | "/" | "\\" | "$" | "~")+ }
+
+// Arguments
+
+// todo
+unquoted      = { value }
+single_quoted = { "'" ~ (!"'" ~ ANY)* ~ "'" }
+double_quoted = { "\"" ~ (!"\"" ~ ANY)* ~ "\"" }
+
+flag_arg = { "-" ~ ASCII_ALPHANUMERIC+ }
+
+option_value        = _{ unquoted | single_quoted | double_quoted }
+option_arg_no_value =  { "--" ~ id }
+option_arg_eq_value =  { "--" ~ id ~ "=" ~ option_value }
+option_arg_ws_value =  { "--" ~ id ~ blank ~ option_value }
+option_arg          =  { option_arg_eq_value | option_arg_ws_value | option_arg_no_value }
+
+positional_arg = { unquoted | single_quoted | double_quoted }
+
+arg       = _{ option_arg | flag_arg | positional_arg }
+args_list = _{ (arg ~ blank?)* }
+
+// Command line
+
+command      = _{ id }
+command_line = _{ command ~ blank ~ args_list }
+
+// Entry points
+
+entry_args = _{
+    SOI ~ args_list ~ EOI
+}
+
+entry_cli = _{
+    SOI ~ command_line ~ EOI
+}

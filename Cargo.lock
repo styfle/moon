@@ -3095,6 +3095,8 @@ name = "moon_args"
 version = "0.1.0"
 dependencies = [
  "miette",
+ "pest",
+ "pest_derive",
  "shell-words",
  "thiserror",
  "winsplit",

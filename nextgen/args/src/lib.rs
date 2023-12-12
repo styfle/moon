@@ -1,3 +1,5 @@
+mod args_parser;
+
 use miette::Diagnostic;
 use std::ffi::{OsStr, OsString};
 use thiserror::Error;
