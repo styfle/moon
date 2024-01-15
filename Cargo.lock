@@ -3190,6 +3190,7 @@ dependencies = [
  "moon_notifier",
  "moon_platform",
  "moon_platform_detector",
+ "moon_plugin",
  "moon_project",
  "moon_project_graph",
  "moon_query",
@@ -3549,6 +3550,7 @@ version = "0.0.1"
 dependencies = [
  "anyhow",
  "extism-pdk",
+ "moon_pdk_api",
  "serde",
 ]
 
@@ -5462,9 +5464,9 @@ checksum = "a8f112729512f8e442d81f95a8a7ddf2b7c6b8a1a6f509a95864142b30cab2d3"
 
 [[package]]
 name = "starbase"
-version = "0.2.12"
+version = "0.2.13"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4a34ccab9800f523a9831087670e219e7e5a90c25445d5753e7e6dbf25b79be3"
+checksum = "5063df38267aac985d5e1be89dcc0d28559a7f09a3d8e84a8162279b4b3b972b"
 dependencies = [
  "async-trait",
  "chrono",
@@ -5515,9 +5517,9 @@ dependencies = [
 
 [[package]]
 name = "starbase_macros"
-version = "0.2.9"
+version = "0.2.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "988e67c7a4f2afb4c19a431f0a45226538441e12641daaf66a60da031fb44f7d"
+checksum = "5abe23176f7631d987cd891f48cfc10897ba6324a3b7623153776215f14802a3"
 dependencies = [
  "darling 0.20.3",
  "proc-macro2",
@@ -5527,9 +5529,9 @@ dependencies = [
 
 [[package]]
 name = "starbase_sandbox"
-version = "0.1.12"
+version = "0.1.13"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "49d8cc34f93dd97db45ad1a7240bc03e01ee8478af003f8d945e8031585a4f11"
+checksum = "74dc9bd92b3587c63cad2db7cb23c79b0d1d1a25b314990880a7a932f6f31e87"
 dependencies = [
  "assert_cmd",
  "assert_fs",
@@ -5543,9 +5545,9 @@ dependencies = [
 
 [[package]]
 name = "starbase_styles"
-version = "0.1.16"
+version = "0.1.17"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d5d5d3e494c96659752fd79227acff36f375d6f113cb5460acdfdfe9a5b95a0d"
+checksum = "25a537fee77930266fea5375a89c50e5964c12abe3db175a517c78cf949e5505"
 dependencies = [
  "dirs 5.0.1",
  "miette",
