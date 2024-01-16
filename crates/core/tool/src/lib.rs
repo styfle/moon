@@ -10,7 +10,8 @@ pub use tool::*;
 
 use moon_common::consts::PROTO_CLI_VERSION;
 use proto_core::{
-    inject_default_manifest_config, Id, PluginLocator, ProtoEnvironment, Tool as ProtoTool, Wasm,
+    inject_default_manifest_config, inject_proto_manifest_config, Id, PluginLocator,
+    ProtoEnvironment, Tool as ProtoTool, Wasm,
 };
 use std::env;
 use std::path::{Path, PathBuf};
@@ -83,7 +84,8 @@ pub async fn load_tool_plugin(
         Wasm::file(proto.get_plugin_loader()?.load_plugin(id, locator).await?),
     )?;
 
-    inject_default_manifest_config(id, proto, &mut manifest)?;
+    inject_default_manifest_config(id, &proto.home, &mut manifest)?;
+    inject_proto_manifest_config(id, proto, &mut manifest)?;
 
     ProtoTool::load_from_manifest(id, proto, manifest)
 }
