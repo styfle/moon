@@ -973,7 +973,7 @@ rust:
             assert_eq!(
                 config.rust.unwrap().plugin.unwrap(),
                 PluginLocator::SourceUrl {
-                    url: "https://github.com/moonrepo/rust-plugin/releases/download/v0.7.0/rust_plugin.wasm".into()
+                    url: "https://github.com/moonrepo/rust-plugin/releases/download/v0.7.1/rust_plugin.wasm".into()
                 }
             );
         }
