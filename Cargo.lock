@@ -3561,11 +3561,10 @@ dependencies = [
 name = "moon_pdk"
 version = "0.0.1"
 dependencies = [
- "anyhow",
  "extism-pdk",
  "moon_pdk_api",
- "proto_pdk",
  "serde",
+ "warpgate_api",
 ]
 
 [[package]]
@@ -3635,7 +3634,6 @@ version = "0.1.0"
 dependencies = [
  "convert_case",
  "dashmap",
- "extism",
  "miette",
  "moon_env",
  "proto_core",
@@ -4001,6 +3999,7 @@ dependencies = [
  "rustc-hash",
  "starbase_styles",
  "thiserror",
+ "warpgate",
 ]
 
 [[package]]
@@ -4693,8 +4692,8 @@ name = "proto_core"
 version = "0.28.4"
 dependencies = [
  "cached",
- "extism",
  "human-sort",
+ "indexmap 2.1.0",
  "miette",
  "minisign-verify",
  "once_cell",
@@ -4736,20 +4735,9 @@ dependencies = [
 ]
 
 [[package]]
-name = "proto_pdk"
-version = "0.14.3"
-dependencies = [
- "anyhow",
- "extism-pdk",
- "proto_pdk_api",
- "serde",
-]
-
-[[package]]
 name = "proto_pdk_api"
 version = "0.14.2"
 dependencies = [
- "anyhow",
  "semver",
  "serde",
  "serde_json",
@@ -5137,9 +5125,9 @@ dependencies = [
 
 [[package]]
 name = "schematic"
-version = "0.13.4"
+version = "0.13.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b691c4252f5f27ed4f41a3646a39713a3a47cb10258cdab84db5b1c077c6a22d"
+checksum = "0b264774063bdc7a16fe1158426b5a29604478d1c64da0b73cba396505329116"
 dependencies = [
  "garde",
  "indexmap 2.1.0",
@@ -5160,9 +5148,9 @@ dependencies = [
 
 [[package]]
 name = "schematic_macros"
-version = "0.13.3"
+version = "0.13.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a28e8e12da16db0fbca79d4b7f5f0d790d83bdfc3883462252820198d3d1dc47"
+checksum = "5362f20a1e2346fb9a7878261b27c8e1adf7872bf4201b7c018dfd3cd88e26a7"
 dependencies = [
  "convert_case",
  "darling 0.20.3",
@@ -5173,10 +5161,11 @@ dependencies = [
 
 [[package]]
 name = "schematic_types"
-version = "0.5.3"
+version = "0.5.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5826cd24b850f0ae16bf1e51335fabf42f8b1f4255f2b7d642f0082234cbb36e"
+checksum = "1c90769caea1c16e71c756f7afe77a35620d61f77d3db4b834d246203f4ea44b"
 dependencies = [
+ "indexmap 2.1.0",
  "semver",
  "serde_json",
  "toml 0.8.8",
@@ -6465,6 +6454,7 @@ dependencies = [
  "starbase_archive",
  "starbase_styles",
  "starbase_utils",
+ "system_env",
  "thiserror",
  "tracing",
  "warpgate_api",
@@ -6474,8 +6464,11 @@ dependencies = [
 name = "warpgate_api"
 version = "0.2.0"
 dependencies = [
+ "extism-pdk",
  "schematic",
  "serde",
+ "serde_json",
+ "system_env",
 ]
 
 [[package]]
